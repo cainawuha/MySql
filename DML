@@ -1,0 +1,20 @@
+查看创建语句
+show create database test;
+show create table teacher;  
+
+drop table  if exists teacher;
+
+引擎 innodb myisam
+innodb支持事务，行锁，外键，但是表空间是myisam两倍
+
+alter table teacher modify age varchar(10);修改字段约束
+alter table teacher change age ageteacher varchar(10);修改字段名
+
+alter table teacher add age int(11);
+alter table teacher drop age;
+alter table student add 约束 “foreignkey” foreign key（id）references“grade表” （gradeid）， 删除的时候先删除引用别人的表，再删除被引用的表
+但是避免这样加表级别的锁，最好是在程序里实现外键的逻辑
+插入记录
+insert into student('id','name','sex') values('','','')
+更新记录
+update student set name=123 where id =1;
